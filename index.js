@@ -25,13 +25,13 @@ exports.respond200 = function (res, jsonObj){
   res.end();
 };
 
-exports.respond403 = function (res, message, code){
+exports.respond403 = function (res, code, message){
   res.statusCode = 403;
   res.setHeader("Access-Control-Allow-Origin", "*");
   res.setHeader("Content-Type", "application/json");
   var obj = {};
   if(message){
-    obj.error = message;
+    obj.message = message;
   }
   if(code){
     obj.code = code;
@@ -49,7 +49,7 @@ exports.respondError = function(res, code, message, statusCode){
     obj.code = code;
   }
   if(message){
-    obj.error = message;
+    obj.message = message;
   }
   res.write(JSON.stringify(obj));
   res.end();
