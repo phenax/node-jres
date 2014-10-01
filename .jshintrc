@@ -1,0 +1,17 @@
+{
+  "curly": true,
+  "globalstrict": false,
+  "quotmark": false,
+  "eqeqeq": false,
+  "immed": true,
+  "latedef": true,
+  "newcap": true,
+  "noarg": true,
+  "sub": true,
+  "undef": true,
+  "boss": true,
+  "laxcomma": true,
+  "eqnull": true,
+  "node": true,
+  "globalstrict": false
+}

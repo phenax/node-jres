@@ -1,0 +1,28 @@
+{
+  "name": "jres",
+  "version": "1.0.0",
+  "description": "Simple tools to build JSON format responses",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git@github.com:StubHubLabs/node-jres.git"
+  },
+  "keywords": [
+    "json",
+    "api"
+  ],
+  "author": "",
+  "licenses": [
+    {
+      "type": "MIT",
+      "url": "/blob/master/LICENSE"
+    }
+  ],
+  "bugs": {
+    "url": "https://github.com/StubHubLabs/node-jres/issues"
+  },
+  "homepage": "https://github.com/StubHubLabs/node-jres"
+}
