@@ -16,8 +16,7 @@ exports.respond500 = function(res, error, code, message){
   if(message){
     obj.message = message;
   }
-  res.write(JSON.stringify(obj));
-  res.end();
+  res.end(JSON.stringify(obj));
 };
 
 exports.respond200 = function (res, jsonObj){
@@ -27,8 +26,7 @@ exports.respond200 = function (res, jsonObj){
     "Access-Control-Allow-Origin": "*"
   });
 
-  res.write(JSON.stringify(jsonObj));
-  res.end();
+  res.end(JSON.stringify(jsonObj));
 };
 
 exports.respond403 = function (res, code, message){
@@ -45,8 +43,8 @@ exports.respond403 = function (res, code, message){
   if(code){
     obj.code = code;
   }
-  res.write(JSON.stringify(obj));
-  res.end();
+
+  res.end(JSON.stringify(obj));
 };
 
 exports.respondError = function(res, code, message, statusCode){
@@ -63,8 +61,8 @@ exports.respondError = function(res, code, message, statusCode){
   if(message){
     obj.message = message;
   }
-  res.write(JSON.stringify(obj));
-  res.end();
+
+  res.end(JSON.stringify(obj));
 };
 
 exports.respondOptions = function(res, origin, headers, methods){
