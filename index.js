@@ -1,8 +1,11 @@
 // index.js
 exports.respond500 = function(res, error, code, message){
-  res.statusCode = 500;
-  res.setHeader("Content-Type", "application/json");
-  res.setHeader("Access-Control-Allow-Origin", "*");
+
+  res.writeHead(500, {
+    "Content-Type": "application/json",
+    "Access-Control-Allow-Origin": "*"
+  });
+
   var obj = {};
   if(error){
     obj.error = error;
@@ -18,17 +21,23 @@ exports.respond500 = function(res, error, code, message){
 };
 
 exports.respond200 = function (res, jsonObj){
-  res.statusCode = 200;
-  res.setHeader("Access-Control-Allow-Origin", "*");
-  res.setHeader("Content-Type", "application/json");
+
+  res.writeHead(200, {
+    "Content-Type": "application/json",
+    "Access-Control-Allow-Origin": "*"
+  });
+
   res.write(JSON.stringify(jsonObj));
   res.end();
 };
 
 exports.respond403 = function (res, code, message){
-  res.statusCode = 403;
-  res.setHeader("Access-Control-Allow-Origin", "*");
-  res.setHeader("Content-Type", "application/json");
+
+  res.writeHead(403, {
+    "Content-Type": "application/json",
+    "Access-Control-Allow-Origin": "*"
+  });
+
   var obj = {};
   if(message){
     obj.message = message;
@@ -41,9 +50,12 @@ exports.respond403 = function (res, code, message){
 };
 
 exports.respondError = function(res, code, message, statusCode){
-  res.statusCode = statusCode || 500;
-  res.setHeader("Access-Control-Allow-Origin", "*");
-  res.setHeader("Content-Type", "application/json");
+
+  res.writeHead(statusCode || 500, {
+    "Content-Type": "application/json",
+    "Access-Control-Allow-Origin": "*"
+  });
+
   var obj = {};
   if(code){
     obj.code = code;
@@ -56,9 +68,12 @@ exports.respondError = function(res, code, message, statusCode){
 };
 
 exports.respondOptions = function(res, origin, headers, methods){
-  res.statusCode = 200;
-  res.setHeader("Access-Control-Allow-Origin", origin || "*");
-  res.setHeader("Access-Control-Allow-Headers", headers || "accept, content-type");
-  res.setHeader("Access-Control-Allow-Methods", methods || "POST, GET, DELETE, PUT, OPTIONS");
+
+  res.writeHead(200, {
+    "Access-Control-Allow-Origin": origin || "*",
+    "Access-Control-Allow-Headers": headers || "accept, content-type",
+    "Access-Control-Allow-Methods": methods || "POST, GET, DELETE, PUT, OPTIONS"
+  });
+
   res.end();
 };
